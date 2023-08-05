@@ -1,7 +1,7 @@
 {
   "name": "sudoku",
   "version": "0.1.0",
-  "homepage": "https://peterzzez.github.io/sudoku-solver",
+  "homepage": "https://peterzzez.github.io/Sudoku-Solver/",
   "private": true,
   "scripts": {
     "predeploy": "npm run build",
