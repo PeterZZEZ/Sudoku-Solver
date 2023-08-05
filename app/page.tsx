@@ -42,7 +42,7 @@ export default function Home() {
   function animateArrayUpdate(animations:number[][],sudoku:number[][]) {
     let prev=animations[0][0];
     for (let i = 0; i < animations.length; i++) {
-      const arrayBars = document.getElementsByClassName('CellInput');
+      const arrayBars = document.getElementsByClassName('CellInput') as HTMLCollectionOf<HTMLInputElement>;
       const [idx, num, on] = animations[i];
       //The current cell that is being checked
       const CurrentCell = arrayBars[idx-1].style;
@@ -51,7 +51,7 @@ export default function Home() {
       const color= on===1 ? SECONDARY_COLOR : THIRD_COLOR;
       setTimeout(() => {
         CurrentCell.backgroundColor =color;
-        arrayBars[idx-1].value=num===-1? 0:num;
+        arrayBars[idx-1].value = num===-1? "0":num.toString();
       },  i * ANIMATION_SPEED_MS);
       prev=idx;
     }
@@ -89,7 +89,7 @@ export default function Home() {
   function resetSudoku(){
     if(solving){return}
     setSudokuArr(initial);
-    var arrayBars = document.getElementsByClassName('Editable');
+    var arrayBars = document.getElementsByClassName('Editable') as HTMLCollectionOf<HTMLInputElement>;
     for (var i = 0; i < arrayBars.length; i++) {
       arrayBars[i].style.backgroundColor=PRIMARY_COLOR
     }
