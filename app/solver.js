@@ -1,10 +1,9 @@
 'allowImportingTsExtensions'
 import {valid} from './valid.js'
-
+  //The backtrack algo
   export function solver(grid,animations){
     let find= findEmpty(grid),
     row,col;
-    
     if(find[0]===-1){
       return true;
     }
@@ -25,6 +24,7 @@ import {valid} from './valid.js'
     }
     return false;
   }
+  //Find the empty first empty cell to be filled in by the backtrack algo
   export function findEmpty(grid){
     for(let i =0;i<9;i++){
       for(let j =0;j<9;j++){
