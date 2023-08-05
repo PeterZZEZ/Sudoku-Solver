@@ -31,7 +31,7 @@ export default function Home() {
   function getDeepCopy(arr:number[][]){
     return JSON.parse(JSON.stringify(arr));
   }
-  function onInputChange(e:string, row:number, col:number){
+  function onInputChange(e:React.ChangeEvent<HTMLInputElement>, row:number, col:number){
     var val = parseInt(e.target.value)||-1 , grid=getDeepCopy(sudokuArr);
     if(val === -1 || val >=1 && val<=9){
       grid[row][col]=val;
