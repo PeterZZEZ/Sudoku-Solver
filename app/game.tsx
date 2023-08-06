@@ -5,6 +5,7 @@ import { valid } from './valid'
 import { genBoard } from "./generator";
 import {Board} from './board';
 import { useSudokuContext } from "./sudoku";
+import {StatusSection} from "./status"
 const ANIMATION_SPEED_MS = 50;
 
 // This is the main color of the editable cell.
@@ -37,6 +38,13 @@ export const Game:React.FC<{}>=()=> {
     setCellSelected(-1);
     setWon(false);
   }
+  function _fillCell(index: number, value: number) {
+    if (initArray[index] === -1) {
+      let tempArray = gameArray.slice();
+      tempArray[index] = value;
+      setGameArray(tempArray);
+    }
+  }
   function onClickNewGame() {
     _createNewGame();
   }
@@ -49,10 +57,14 @@ export const Game:React.FC<{}>=()=> {
       if(valid(copy,val,cellSelected)){
         copy[cellSelected]=val
         setGameArray(copy);
-        console.log(val);
       }
     }
     
+  }
+  function onClickErase() {
+    if(cellSelected !== -1 && gameArray[cellSelected] !== -1) {
+      _fillCell(cellSelected, -1);
+    }
   }
   //The animation control
   /*
@@ -91,7 +103,9 @@ export const Game:React.FC<{}>=()=> {
                 onKeyDown={(enterVal:number) => onKeyDownVal(enterVal)}
             />
         </div>
-        
+        <StatusSection
+            onClickErase={onClickErase}
+          />
       </div>
       
     </div>
