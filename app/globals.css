@@ -38,13 +38,18 @@ td{
 }
 .checkButton{
   background-color: tomato;
+  margin:0px 10px;
 }
 .solveButton{
   background-color: orange;
-  margin:0px 20px;
+  margin:0px 10px;
 }
 .resetButton{
   background-color: teal;
+  margin:0px 20px;
+}
+.generatorButton{
+  background-color:chocolate;
 }
 .Button_style{
   font-weight: bold;
