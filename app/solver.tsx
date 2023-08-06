@@ -1,7 +1,6 @@
-'allowImportingTsExtensions'
-import {valid} from './valid.js'
+import {valid} from './valid'
   //The backtrack algo
-  export function solver(grid,animations){
+  export function solver(grid:number[][],animations:number[][]){
     let find= findEmpty(grid),
     row,col;
     if(find[0]===-1){
@@ -11,8 +10,11 @@ import {valid} from './valid.js'
       row=find[0];
       col=find[1];
     }
+    let idx= row*9+col
+    let temp:number[]=[]
+    temp=temp.concat(...grid)
     for(let i=1;i<10;i++){
-      if(valid(grid,i,row,col)){
+      if(valid(temp,i,idx)){
         grid[row][col]=i;
         animations.push([ (row+1) * 9 -  (9- (col+1) ), i,0])
         if(solver(grid,animations)){
@@ -25,7 +27,7 @@ import {valid} from './valid.js'
     return false;
   }
   //Find the empty first empty cell to be filled in by the backtrack algo
-  export function findEmpty(grid){
+  export function findEmpty(grid:number[][]){
     for(let i =0;i<9;i++){
       for(let j =0;j<9;j++){
         if(grid[i][j]===-1){

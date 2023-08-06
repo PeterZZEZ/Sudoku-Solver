@@ -2,11 +2,29 @@
 @tailwind components;
 @tailwind utilities;
 
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+:root {
+  --background-color: #282c34;
+  --color-blue: hsl(210, 88%, 56%);
+  --color-grey: hsl(213, 30%, 29%);
+  --color-grey-light: hsl(213, 30%, 59%);
+  --color-grey-lighter: hsl(213, 30%, 79%);
+  --color-orange: hsl(34, 84%, 85%);
+  --color-orange-dark: hsl(34, 77%, 76%);
+  --color-black: black;
+  --color-orange-deeper:hsl(34, 100%, 67%);
+}
 .App{
   text-align: center;
+  width: 100%;
+  background-color: var(--background-color);
 }
 .App-header{
-  background-color: #282c34;
+  background-color: var(--background-color);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -15,53 +33,82 @@
   font-size: calc(10px + 2vmin);
   color:aliceblue;
 }
-.CellInput{
+.innercontainer {
+  display: flex;
+  color: var(--color-grey);
+  flex-wrap: wrap;
+  padding: 0 20px;
+}
+
+.container {
+  max-width: 700px;
+  min-width: 270px;
+  margin: 0 auto;
+  padding: 0 10px;
+}
+
+.game {
+  width: 100%;
+}
+.game__board {
+  font-family: 'Noto Sans', sans-serif;
+  margin: 30px 0;
+  border: 2px solid var(--color-black);
+  border-collapse: collapse;
+}
+.game__cell {
+  background-color: var(--color-orange);
+  border: 1px solid var(--color-black);
+  color: var(--color-orange);
+  cursor: pointer;
   width: 50px;
   height: 50px;
   font-size: 20px;
   text-align: center;
   padding: 0px;
-  border: 1px solid black;
-  color: black;
 }
-table{
-  border-collapse: collapse;
-  border:3px solid bisque;
-  background-color: bisque;
 
+.game__cell.game__cell--filled {
+  color: var(--color-grey);
 }
-td{
-  padding: 0;
-}
-.buttonContainer{
-  margin-top:20px;
-}
-.checkButton{
-  background-color: tomato;
-  margin:0px 10px;
-}
-.solveButton{
-  background-color: orange;
-  margin:0px 10px;
-}
-.resetButton{
-  background-color: teal;
-  margin:0px 20px;
-}
-.generatorButton{
-  background-color:chocolate;
-}
-.Button_style{
-  font-weight: bold;
-  padding:12px 20px;
-  border:none;
-  border-radius: 20px;
-  font-size: 14px;
 
+.game__cell.game__cell--userfilled {
+  color: var(--color-grey-light);
 }
-.bBorder{
-  border-bottom: 2px solid black;
+
+.game__cell.game__cell--selected {
+  color: var(--color-orange);
+  background-color: var(--color-orange);
 }
-.rBorder{
-  border-right: 2px solid black;
+
+.game__cell.game__cell--filled.game__cell--selected {
+  color: var(--color-grey);
+  background-color: var(--color-orange-deeper);
+}
+
+.game__cell.game__cell--userfilled.game__cell--selected {
+  color: var(--color-grey-light);
+  background-color: var(--color-orange);
+}
+
+.game__cell.game__cell--highlightselected {
+  color: var(--color-orange-dark);
+  background-color: var(--color-orange-dark);
+}
+
+.game__cell.game__cell--filled.game__cell--highlightselected {
+  color: var(--color-grey);
+  background-color: var(--color-orange-dark);
+}
+
+.game__cell.game__cell--userfilled.game__cell--highlightselected {
+  color: var(--color-grey-light);
+  background-color: var(--color-orange-dark);
+}
+
+.game__cell:nth-child(3n) {
+  border-right: 2px solid var(--color-black);
+}
+.game__row:nth-child(3n) {
+  border-bottom: 2px solid var(--color-black);
 }

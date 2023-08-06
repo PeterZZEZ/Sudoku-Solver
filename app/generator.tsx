@@ -59,5 +59,7 @@ export function genBoard(dif:number){
     ))
     let animations:number[][]=[]
     solver(board, animations);
-    return board
+    gapMaker(board,dif);
+    let temp:number[]=[]
+    return temp.concat(...board);
 }
