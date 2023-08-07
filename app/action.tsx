@@ -14,18 +14,25 @@ type SvgProps = {
   const Svg = (props: SvgProps) => {
     if (props.action === 'erase') {
       return (
-        <svg className="status__action-svg" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 512.001 512.001"><path d="M505.922,476.567L285.355,256L505.92,35.435c8.106-8.105,8.106-21.248,0-29.354c-8.105-8.106-21.248-8.106-29.354,0L256.001,226.646L35.434,6.081c-8.105-8.106-21.248-8.106-29.354,0c-8.106,8.105-8.106,21.248,0,29.354L226.646,256L6.08,476.567c-8.106,8.106-8.106,21.248,0,29.354c8.105,8.105,21.248,8.106,29.354,0l220.567-220.567l220.567,220.567c8.105,8.105,21.248,8.106,29.354,0S514.028,484.673,505.922,476.567z" fill="hsl(213, 30%, 59%)"/></svg>
+<svg xmlns="http://www.w3.org/2000/svg"viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className="status__action-svg" id="IconChangeColor"><path d="M21 4H8l-7 8 7 8h13a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2z" id="mainIconPathAttribute" stroke="#fff"></path><line x1="18" y1="9" x2="12" y2="15"></line><line x1="12" y1="9" x2="18" y2="15"></line></svg>      )
+    }
+    else if(props.action==='solve'){
+      return (
+        <svg xmlns="http://www.w3.org/2000/svg"fill="currentColor" className="status__action-svg" viewBox="0 0 16 16"> <path d="M2 6a6 6 0 1 1 10.174 4.31c-.203.196-.359.4-.453.619l-.762 1.769A.5.5 0 0 1 10.5 13a.5.5 0 0 1 0 1 .5.5 0 0 1 0 1l-.224.447a1 1 0 0 1-.894.553H6.618a1 1 0 0 1-.894-.553L5.5 15a.5.5 0 0 1 0-1 .5.5 0 0 1 0-1 .5.5 0 0 1-.46-.302l-.761-1.77a1.964 1.964 0 0 0-.453-.618A5.984 5.984 0 0 1 2 6zm6-5a5 5 0 0 0-3.479 8.592c.263.254.514.564.676.941L5.83 12h4.342l.632-1.467c.162-.377.413-.687.676-.941A5 5 0 0 0 8 1z"/> </svg>
       )
-    } else {
+    }
+    else {
       return null;
     }
   }
 export const Action = (props : ActionProp) =>{
     return(
-        <div className={"status__action-erase"} onClick={props.onClickAction}>
+        <div className={"status__action-"+props.action} onClick={props.onClickAction}>
             <Svg action={props.action} />
             <p className='status__action_text'>
-                {"Erase"}
+                {
+                  props.action
+                }
             </p>
         </div>
     )

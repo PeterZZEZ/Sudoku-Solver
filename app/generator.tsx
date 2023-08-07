@@ -41,7 +41,7 @@ function cellMaker(){
   }
   return comb;
 }
-function getDeepCopy(arr:number[][]){
+export function getDeepCopy(arr:number[][]){
   return JSON.parse(JSON.stringify(arr));
 }
 function gapMaker(grid:number[][],k:number){

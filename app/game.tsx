@@ -6,6 +6,7 @@ import { genBoard } from "./generator";
 import {Board} from './board';
 import { useSudokuContext } from "./sudoku";
 import {StatusSection} from "./status"
+import { getDeepCopy } from "./generator";
 const ANIMATION_SPEED_MS = 50;
 
 // This is the main color of the editable cell.
@@ -66,6 +67,23 @@ export const Game:React.FC<{}>=()=> {
       _fillCell(cellSelected, -1);
     }
   }
+  function dto2d(arr:number[]){
+    const newArr:number[][] = [];
+    while(arr.length){newArr.push(arr.splice(0,9));}
+    return newArr;
+  }
+  function dto1d(arr:number[][]){
+    let temp:number[]=[]
+    return temp.concat(...arr);
+  }
+  function onClickSolve(){
+    let temp = getDeepCopy(initArray);
+    let temper = dto2d(temp)
+    solver(temper,[])
+    console.log(temper)
+    let tempBoardArray=dto1d(temper)
+    setGameArray(tempBoardArray)
+  }
   //The animation control
   /*
   function animateArrayUpdate(animations:number[][],sudoku:number[][]) {
@@ -105,6 +123,7 @@ export const Game:React.FC<{}>=()=> {
         </div>
         <StatusSection
             onClickErase={onClickErase}
+            onClickSolve={onClickSolve}
           />
       </div>
       
