@@ -9,7 +9,8 @@ export const Board = (props:BoardProps) => {
     let {   numberSelected,
             gameArray,
             cellSelected,
-            initArray } = useSudokuContext();
+            initArray 
+          ,won} = useSudokuContext();
 
     function _selectedCell(arrayIndex:number,val:number,highlight:string){
         if (val !== -1) {

@@ -28,6 +28,16 @@ export const Game:React.FC<{}>=()=> {
     initArray, setInitArray,
     won, setWon } = useSudokuContext();
     
+  function _winCheck(){
+    for(let i = 0 ; i < gameArray.length ; i++){
+      if(!valid(gameArray,gameArray[i],i)){
+        setWon(false)
+        return false;
+      }
+    }
+    setWon(true)
+    return true;
+  }
   function onClickCell(indexOfArray: number) {
     setCellSelected(indexOfArray);
   }
@@ -50,6 +60,7 @@ export const Game:React.FC<{}>=()=> {
       tempArray[index] = value;
       setGameArray(tempArray);
     }
+    _winCheck()
   }
   function onClickNewGame() {
     _createNewGame();
@@ -65,7 +76,7 @@ export const Game:React.FC<{}>=()=> {
         setGameArray(copy);
       }
     }
-    
+    _winCheck()
   }
   function onClickErase() {
     if(cellSelected !== -1 && gameArray[cellSelected] !== -1) {
@@ -90,7 +101,7 @@ export const Game:React.FC<{}>=()=> {
     setGameArray(tempBoardArray)
   }
   function onClickRestart(){
-    _resetGame();
+    _resetGame()
   }
   useEffect(() => {
     _createNewGame();
@@ -122,6 +133,9 @@ export const Game:React.FC<{}>=()=> {
     animations.length * ANIMATION_SPEED_MS);
     return true;
   }*/
+  
+  
+
   return (
     <div className='App' >
       <div className='App-header'>
