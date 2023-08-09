@@ -125,6 +125,7 @@
   display: flex;
   justify-content: space-around;
 }
+.status__action-restart,
 .status__action-solve,
 .status__action-erase{
   text-align: center;
@@ -150,6 +151,11 @@
 }
 
 .status__action-solve .status__action-svg {
+  top: 20px;
+  width: 90px;
+  height: 90px;
+}
+.status__action-restart .status__action-svg {
   top: 20px;
   width: 90px;
   height: 90px;

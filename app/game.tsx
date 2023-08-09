@@ -39,6 +39,11 @@ export const Game:React.FC<{}>=()=> {
     setCellSelected(-1);
     setWon(false);
   }
+  function _resetGame(){
+    setGameArray(initArray)
+    setCellSelected(-1)
+    setWon(false)
+  }
   function _fillCell(index: number, value: number) {
     if (initArray[index] === -1) {
       let tempArray = gameArray.slice();
@@ -84,6 +89,9 @@ export const Game:React.FC<{}>=()=> {
     let tempBoardArray=dto1d(temper)
     setGameArray(tempBoardArray)
   }
+  function onClickRestart(){
+    _resetGame();
+  }
   useEffect(() => {
     _createNewGame();
   }, []);
@@ -127,6 +135,7 @@ export const Game:React.FC<{}>=()=> {
         <StatusSection
             onClickErase={onClickErase}
             onClickSolve={onClickSolve}
+            onClickRestart={onClickRestart}
           />
       </div>
       
