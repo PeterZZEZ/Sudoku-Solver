@@ -84,6 +84,9 @@ export const Game:React.FC<{}>=()=> {
     let tempBoardArray=dto1d(temper)
     setGameArray(tempBoardArray)
   }
+  useEffect(() => {
+    _createNewGame();
+  }, []);
   //The animation control
   /*
   function animateArrayUpdate(animations:number[][],sudoku:number[][]) {
