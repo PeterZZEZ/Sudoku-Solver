@@ -20,12 +20,12 @@ export const Board = (props:BoardProps) => {
             )
           } else {
             return (
-              <td tabIndex={arrayIndex+1} className={`game__cell game__cell--filled game__cell--${highlight}selected`}onKeyDown={(e)=>{enterNumber(e)}} key={arrayIndex} onClick={() => props.onClick(arrayIndex)}>{val!==-1?val:''}</td>
+              <td tabIndex={arrayIndex+1} className={`game__cell game__cell--filled game__cell--${highlight}selected`} onKeyDown={(e)=>{enterNumber(e)}} key={arrayIndex} onClick={() => props.onClick(arrayIndex)}>{val!==-1?val:''}</td>
             )
           }
         } else {
           return (
-            <td tabIndex={arrayIndex+1} className={`game__cell game__cell--${highlight}selected`} key={arrayIndex}onKeyDown={(e)=>{enterNumber(e)}} onClick={() => props.onClick(arrayIndex)}>{val!==-1?val:''}</td>
+            <td tabIndex={arrayIndex+1} className={`game__cell game__cell--${highlight}selected`} key={arrayIndex} onKeyDown={(e)=>{enterNumber(e)}} onClick={() => props.onClick(arrayIndex)}>{val!==-1?val:''}</td>
           )
         }
       }
@@ -33,11 +33,11 @@ export const Board = (props:BoardProps) => {
         if (val !== -1) {
           if (initArray[arrayIndex] === -1) {
             return (
-              <td tabIndex={arrayIndex+1} className="game__cell game__cell--userfilled" key={arrayIndex}onKeyDown={(e)=>{enterNumber(e)}} onClick={() => props.onClick(arrayIndex)}>{val!==-1?val:''}</td>
+              <td tabIndex={arrayIndex+1} className="game__cell game__cell--userfilled" key={arrayIndex} onKeyDown={(e)=>{enterNumber(e)}} onClick={() => props.onClick(arrayIndex)}>{val!==-1?val:''}</td>
             )
           } else {
             return (
-              <td tabIndex={arrayIndex+1} className="game__cell game__cell--filled" key={arrayIndex}onKeyDown={(e)=>{enterNumber(e)}} onClick={() => props.onClick(arrayIndex)}>{val!==-1?val:''}</td>
+              <td tabIndex={arrayIndex+1} className="game__cell game__cell--filled" key={arrayIndex} onKeyDown={(e)=>{enterNumber(e)}} onClick={() => props.onClick(arrayIndex)}>{val!==-1?val:''}</td>
             )
           }
         } else {

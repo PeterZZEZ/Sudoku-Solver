@@ -118,6 +118,7 @@
 
 .status{
   width: 50%;
+  justify-content: center;
 }
 .status__actions{
   position: relative;

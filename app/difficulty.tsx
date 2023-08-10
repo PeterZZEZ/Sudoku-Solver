@@ -14,7 +14,7 @@ export const Difficulty = (props : DifficultyProp) =>{
         chosen='chosen'
     }
     return(
-        <div className={"difficulty__action-"+props.action} onClick={()=>props.onClickAction(""+props.action)}>
+        <div className={"difficulty__action-"+props.action} onClick={()=>props.onClickAction(props.action)}>
             <p className={'difficulty__text'+chosen} >
                 {
                   props.action

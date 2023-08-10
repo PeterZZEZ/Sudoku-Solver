@@ -43,8 +43,8 @@ export const Game:React.FC<{}>=()=> {
   function onClickCell(indexOfArray: number) {
     setCellSelected(indexOfArray);
   }
-  function _createNewGame() {
-    let temporaryInitArray = genBoard(difficulty);
+  function _createNewGame(dif:string=difficulty) {
+    let temporaryInitArray = genBoard(dif);
     setInitArray(temporaryInitArray);
     setGameArray(temporaryInitArray);
     setNumberSelected('0');
@@ -63,6 +63,9 @@ export const Game:React.FC<{}>=()=> {
       setGameArray(tempArray);
     }
     _winCheck()
+  }
+  function _setNewDifficulty(diff:string){
+    setDifficulty(diff);
   }
   function onClickNewGame() {
     _createNewGame();
@@ -104,13 +107,15 @@ export const Game:React.FC<{}>=()=> {
   function onClickRestart(){
     _resetGame()
   }
+
+  function onClickDifficulty(diff:string){
+    _setNewDifficulty(diff)
+    _createNewGame(diff)
+  }
   useEffect(() => {
     _createNewGame();
   }, []);
-  function onClickDifficulty(newDifficulty:string){
-    setDifficulty(newDifficulty);
-    _createNewGame()
-  }
+  
   //The animation control
   /*
   function animateArrayUpdate(animations:number[][],sudoku:number[][]) {
