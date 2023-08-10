@@ -125,6 +125,21 @@
   display: flex;
   justify-content: space-around;
 }
+.difficulty-bar{
+  display: flex;
+  justify-content: space-around;
+}
+.difficulty__text{
+  text-transform: uppercase;
+  cursor: pointer;
+}
+.difficulty__textchosen{
+  text-transform: uppercase;
+  cursor: pointer;
+  color: greenyellow;
+}
+
+
 .status__action-restart,
 .status__action-solve,
 .status__action-erase{

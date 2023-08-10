@@ -51,9 +51,22 @@ function gapMaker(grid:number[][],k:number){
     grid[combs[i][0]][combs[i][1]]=-1;
   }
 }
-export function genBoard(dif:number){
-    let board=initialize2DArray(9,9,-1) as number[][];
-    [[0,0],[3,3],[6,6]].forEach(
+export function genBoard(difficulty:string){
+  let dif = 0
+  if(difficulty=='easy'){
+    console.log('easy')
+    dif=15
+  }
+  if(difficulty=='medium'){
+    console.log('medium')
+    dif=30
+  }
+  if(difficulty=='hard'){
+    console.log('hard')
+    dif=45
+  }
+  let board=initialize2DArray(9,9,-1) as number[][];
+  [[0,0],[3,3],[6,6]].forEach(
         ([row,col])=>(
                board=fillSmall(board,row,col)
     ))

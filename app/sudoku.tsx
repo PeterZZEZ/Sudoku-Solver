@@ -19,7 +19,7 @@ type SudokuContextProps = {
 
 const SudokuContext = createContext<SudokuContextProps>({ numberSelected: '0', setNumberSelected: () => {},
                                                           gameArray: [], setGameArray: () => {},
-                                                          difficulty: 'Easy', setDifficulty: () => {},
+                                                          difficulty: 'easy', setDifficulty: () => {},
                                                           cellSelected: -1, setCellSelected: () => {},
                                                           initArray: [], setInitArray: () => {},
                                                           won: false, setWon: () => {} });
@@ -31,7 +31,7 @@ type SudokuProviderProps = {
 export const SudokuProvider = ({ children }: SudokuProviderProps) => {
   let [ numberSelected, setNumberSelected ] = useState<string>('0');
   let [ gameArray, setGameArray ] = useState<number[]>([]);
-  let [ difficulty,setDifficulty ] = useState<string>('Easy');
+  let [ difficulty,setDifficulty ] = useState<string>('easy');
   let [ cellSelected, setCellSelected ] = useState<number>(-1);
   let [ initArray, setInitArray ] = useState<number[]>([]);
   let [ won, setWon ] = useState<boolean>(false);

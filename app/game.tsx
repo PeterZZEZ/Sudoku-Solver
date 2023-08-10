@@ -20,6 +20,8 @@ const THIRD_COLOR ='green'
 // The Difficulty modifier
 
 const EASY=15,MEDIUM=30,HARD=45;
+
+
 export const Game:React.FC<{}>=()=> {
   let { numberSelected, setNumberSelected,
     gameArray, setGameArray,
@@ -42,7 +44,8 @@ export const Game:React.FC<{}>=()=> {
     setCellSelected(indexOfArray);
   }
   function _createNewGame() {
-    let temporaryInitArray = genBoard(MEDIUM);
+    let temporaryInitArray = genBoard(difficulty);
+    console.log(difficulty)
     setInitArray(temporaryInitArray);
     setGameArray(temporaryInitArray);
     setNumberSelected('0');
@@ -106,6 +109,11 @@ export const Game:React.FC<{}>=()=> {
   useEffect(() => {
     _createNewGame();
   }, []);
+  function onClickDifficulty(newDifficulty:string){
+    console.log(newDifficulty)
+    setDifficulty(newDifficulty);
+    _createNewGame()
+  }
   //The animation control
   /*
   function animateArrayUpdate(animations:number[][],sudoku:number[][]) {
@@ -150,6 +158,7 @@ export const Game:React.FC<{}>=()=> {
             onClickErase={onClickErase}
             onClickSolve={onClickSolve}
             onClickRestart={onClickRestart}
+            onClickDifficulty={(diff:string)=>onClickDifficulty(diff)}
           />
       </div>
       
