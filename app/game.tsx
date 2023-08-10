@@ -114,7 +114,7 @@ export const Game:React.FC<{}>=()=> {
   }
   useEffect(() => {
     _createNewGame();
-  }, );
+  });
   
   //The animation control
   /*
