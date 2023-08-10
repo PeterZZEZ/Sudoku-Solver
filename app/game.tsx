@@ -45,7 +45,6 @@ export const Game:React.FC<{}>=()=> {
   }
   function _createNewGame() {
     let temporaryInitArray = genBoard(difficulty);
-    console.log(difficulty)
     setInitArray(temporaryInitArray);
     setGameArray(temporaryInitArray);
     setNumberSelected('0');
@@ -99,7 +98,6 @@ export const Game:React.FC<{}>=()=> {
     let temp = getDeepCopy(initArray);
     let temper = dto2d(temp)
     solver(temper,[])
-    console.log(temper)
     let tempBoardArray=dto1d(temper)
     setGameArray(tempBoardArray)
   }
@@ -110,7 +108,6 @@ export const Game:React.FC<{}>=()=> {
     _createNewGame();
   }, []);
   function onClickDifficulty(newDifficulty:string){
-    console.log(newDifficulty)
     setDifficulty(newDifficulty);
     _createNewGame()
   }

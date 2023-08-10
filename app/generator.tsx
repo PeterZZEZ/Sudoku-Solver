@@ -54,15 +54,12 @@ function gapMaker(grid:number[][],k:number){
 export function genBoard(difficulty:string){
   let dif = 0
   if(difficulty=='easy'){
-    console.log('easy')
     dif=15
   }
   if(difficulty=='medium'){
-    console.log('medium')
     dif=30
   }
   if(difficulty=='hard'){
-    console.log('hard')
     dif=45
   }
   let board=initialize2DArray(9,9,-1) as number[][];
