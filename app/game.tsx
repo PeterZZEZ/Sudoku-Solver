@@ -112,9 +112,10 @@ export const Game:React.FC<{}>=()=> {
     _setNewDifficulty(diff)
     _createNewGame(diff)
   }
+  //don't remove the empty array it stops it from updating everytick
   useEffect(() => {
     _createNewGame();
-  });
+  },[]);
   
   //The animation control
   /*
